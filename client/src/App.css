@@ -1,0 +1,309 @@
+
+/* CampusFix Sidebar */
+
+.sidebar {
+  width: 260px;
+  min-height: 100vh;
+  background-color: #34483D;
+  color: white;
+  padding: 30px 22px;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  margin-bottom: 65px;
+}
+
+.logo h1 {
+  font-size: 30px;
+  margin-bottom: 8px;
+  color: #FFFFFF;
+}
+
+.logo p {
+  font-size: 14px;
+  color: #DCE3DC;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.menu-item {
+  padding: 15px;
+  border-radius: 10px;
+  color: #E5EBE5;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.menu-item:hover {
+  background-color: #829486;
+  color: white;
+}
+
+.sidebar-bottom {
+  margin-top: auto;
+  color: #DCE3DC;
+  padding-top: 30px;
+}
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Main Dashboard */
+
+.main-content {
+  flex: 1;
+  padding: 40px;
+  background-color: #F3F4F1;
+  min-height: 100vh;
+}
+
+/* Dashboard Header */
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 35px;
+}
+
+.page-header h1 {
+  font-size: 32px;
+  color: #34483D;
+  margin-bottom: 10px;
+}
+
+.page-header p {
+  color: #68756C;
+  font-size: 16px;
+}
+
+.refresh-button {
+  background-color: #34483D;
+  color: white;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.refresh-button:hover {
+  background-color: #829486;
+}
+
+/* Statistics Cards */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.stat-card {
+  background-color: white;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #DCE3DC;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+}
+
+.stat-card p {
+  color: #68756C;
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+.stat-card h2 {
+  color: #34483D;
+  font-size: 30px;
+}
+
+/* Complaints Section */
+
+.complaints-section {
+  background-color: white;
+  padding: 28px;
+  border-radius: 14px;
+  border: 1px solid #DCE3DC;
+}
+
+.section-heading {
+  margin-bottom: 25px;
+}
+
+.section-heading h2 {
+  color: #34483D;
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.section-heading p {
+  color: #68756C;
+}
+
+/* Complaint List */
+
+.complaint-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.complaint-card {
+  background-color: #F3F4F1;
+  border: 1px solid #DCE3DC;
+  border-radius: 12px;
+  padding: 22px;
+}
+
+.complaint-card h3 {
+  color: #34483D;
+  margin: 8px 0;
+}
+
+.complaint-card p {
+  color: #68756C;
+  margin-bottom: 10px;
+}
+
+.status {
+  background-color: #DCE3DC;
+  color: #34483D;
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+.complaint-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.complaint-details {
+  margin-top: 18px;
+}
+
+.complaint-footer {
+  border-top: 1px solid #DCE3DC;
+  padding-top: 12px;
+  margin-top: 12px;
+}
+
+/* Filter and Message Areas */
+
+.message-box {
+  background-color: #F3F4F1;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+/* Responsive Layout */
+
+@media (max-width: 900px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .complaint-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Search and Filter Bar */
+
+.filter-bar {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.filter-bar input,
+.filter-bar select {
+  width: 100%;
+  padding: 13px 15px;
+  border: 1px solid #DCE3DC;
+  border-radius: 8px;
+  background-color: #F3F4F1;
+  color: #34483D;
+  font-size: 14px;
+  outline: none;
+}
+
+.filter-bar input:focus,
+.filter-bar select:focus {
+  border-color: #829486;
+  background-color: white;
+}
+
+.filter-bar input::placeholder {
+  color: #89958C;
+}
+
+@media (max-width: 700px) {
+  .filter-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
+}
+
+/* Complaint Card Improvements */
+
+.complaint-id {
+  font-size: 12px;
+  font-weight: bold;
+  color: #829486 !important;
+}
+
+.complaint-description {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 12px;
+}
+
+.complaint-details {
+  background-color: #E9EEE9;
+  padding: 14px;
+  border-radius: 8px;
+  margin-top: 18px;
+}
+
+.complaint-details p {
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.complaint-details p:last-child {
+  margin-bottom: 0;
+}
+
+.complaint-footer p {
+  font-size: 12px;
+  margin-bottom: 0;
+}
+
+/* Status Colours */
+
+.status {
+  white-space: nowrap;
+  height: fit-content;
+}
+
+.complaint-card:hover {
+  border-color: #829486;
+  box-shadow: 0 5px 15px rgba(52, 72, 61, 0.10);
+  transition: 0.3s;
+}
