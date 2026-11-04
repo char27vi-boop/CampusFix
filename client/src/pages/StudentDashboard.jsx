@@ -1,56 +1,37 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getComplaints } from "../services/api";
 import ComplaintCard from "../components/ComplaintCard";
 import FilterBar from "../components/Filterbar";
 
-const sampleComplaints = [
-  {
-    id: "CF101",
-    title: "Wi-Fi not working",
-    description: "Internet connection is frequently disconnecting.",
-    category: "Internet",
-    location: "Academic Block",
-    priority: "High",
-    status: "Pending",
-    date: "01 Nov 2026"
-  },
-  {
-    id: "CF102",
-    title: "Projector issue",
-    description: "Projector is not displaying properly.",
-    category: "Electrical",
-    location: "Classroom 204",
-    priority: "Medium",
-    status: "In Progress",
-    date: "30 Oct 2026"
-  },
-  {
-    id: "CF103",
-    title: "Water cooler not working",
-    description: "Water cooler needs maintenance.",
-    category: "Water",
-    location: "Hostel Block A",
-    priority: "High",
-    status: "Resolved",
-    date: "28 Oct 2026"
-  },
-  {
-    id: "CF104",
-    title: "Broken classroom chair",
-    description: "One of the classroom chairs is damaged.",
-    category: "Furniture",
-    location: "Academic Block",
-    priority: "Low",
-    status: "Pending",
-    date: "01 Nov 2026"
-  }
-];
 
 export default function StudentDashboard() {
-  const [complaints, setComplaints] = useState(sampleComplaints);
+  const [complaints, setComplaints] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState("All");
   const [category, setCategory] = useState("All");
+  useEffect(() => {
+  const controller = new AbortController();
+
+  getComplaints(controller.signal)
+    .then((data) => {
+      setComplaints(data);
+    })
+    .catch((error) => {
+      if (error.name !== "AbortError") {
+        setError(error.message);
+      }
+    })
+    .finally(() => {
+      if (!controller.signal.aborted) {
+        setLoading(false);
+      }
+    });
+
+  return () => controller.abort();
+}, []);
 
   const categories = [...new Set(
     complaints.map((item) => item.category)
@@ -60,8 +41,8 @@ export default function StudentDashboard() {
     const query = search.toLowerCase().trim();
 
     const matchesSearch =
-      item.title.toLowerCase().includes(query) ||
-      item.location.toLowerCase().includes(query);
+      (item.title || "").toLowerCase().includes(query) ||
+      (item.location || "").toLowerCase().includes(query);
 
     const matchesStatus =
       status === "All" || item.status === status;
@@ -75,11 +56,22 @@ export default function StudentDashboard() {
   const countByStatus = (value) =>
     complaints.filter((item) => item.status === value).length;
 
-  function refreshComplaints() {
-    setComplaints(sampleComplaints);
-    setSearch("");
-    setStatus("All");
-    setCategory("All");
+  async function refreshComplaints() {
+    setLoading(true);
+    setError("");
+
+    try {
+      const data = await getComplaints();
+      setComplaints(data);
+
+      setSearch("");
+      setStatus("All");
+      setCategory("All");
+    } catch (error) {
+      setError(error.message);
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -133,7 +125,15 @@ export default function StudentDashboard() {
           categories={categories}
         />
 
-        {filteredComplaints.length === 0 ? (
+        {loading ? (
+          <div className="message-box">
+            Loading complaints...
+          </div>
+        ) : error ? (
+          <div className="message-box">
+            {error}
+          </div>
+        ) : filteredComplaints.length === 0 ? (
           <div className="message-box">
             No complaints match your filters.
           </div>
@@ -145,6 +145,7 @@ export default function StudentDashboard() {
                 complaint={complaint}
               />
             ))}
+ 
           </div>
         )}
       </section>
