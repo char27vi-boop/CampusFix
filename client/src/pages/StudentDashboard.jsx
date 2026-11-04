@@ -83,7 +83,7 @@ export default function StudentDashboard() {
   }
 
   return (
-    <main className="main-content">
+    <main className="main-content" id ="dashboard">
       <header className="page-header">
         <div>
           <h1>Student Dashboard</h1>
