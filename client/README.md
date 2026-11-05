@@ -1,41 +1,31 @@
-# CampusFix
+# CampusFix - Frontend Client
 
-CampusFix is a campus maintenance complaint management system.
+This is the React frontend client for **CampusFix**, built with React, CSS, and Vite.
 
-Students can use the application to report maintenance issues on campus and keep track of their complaints. The admin can view complaints and update their status.
+## Features Included
 
-## Features
+- **Student Dashboard**: Live complaint metrics, cards feed, search, and category/status filtering.
+- **Complaint Submission Form**: Student complaint filing with validation for title, category, location, and description.
+- **Responsive Design**: Designed for desktop, tablet, and mobile displays following the CampusFix design system.
 
-- Student dashboard to view complaints
-- Search complaints
-- Filter complaints by status and category
-- View complaint details and current status
-- Admin dashboard to manage complaints
+## Setup & Running
 
-## Tech Stack
-
-- React.js
-- CSS
-- Vite
-
-## How to Run the Project
-
-1. Clone the repository.
-2. Open the `client` folder in the terminal.
-3. Install the required packages:
-
+1. Install dependencies:
    ```bash
    npm install
    ```
 
-4. Start the development server:
-
+2. Start the development server:
    ```bash
    npm run dev
    ```
 
-5. Open the local URL shown in the terminal.
+3. Build for production:
+   ```bash
+   npm run build
+   ```
 
-## Project Status
-
-The student dashboard frontend is under development. Backend integration and other features are being developed by the team.
+4. Run linter:
+   ```bash
+   npm run lint
+   ```
