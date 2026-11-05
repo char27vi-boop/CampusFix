@@ -65,6 +65,9 @@ export async function getComplaints(signal, queryParams = {}) {
   if (queryParams.mine) {
     query.set("mine", "true");
   }
+  if (queryParams.scope) {
+    query.set("scope", queryParams.scope);
+  }
 
   const queryString = query.toString() ? `?${query.toString()}` : "";
   const response = await fetch(
@@ -105,6 +108,27 @@ export async function createComplaint(complaint) {
   if (!response.ok) {
     throw new Error(
       data.message || "Unable to submit complaint."
+    );
+  }
+
+  return data;
+}
+
+export async function updateComplaint(id, updates) {
+  const response = await fetch(
+    `${API_BASE_URL}/api/complaints/${encodeURIComponent(id)}`,
+    {
+      method: "PUT",
+      headers: getAuthHeaders(),
+      body: JSON.stringify(updates)
+    }
+  );
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(
+      data.message || "Unable to update complaint."
     );
   }
 

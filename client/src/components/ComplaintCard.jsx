@@ -1,4 +1,4 @@
-function ComplaintCard({ complaint }) {
+function ComplaintCard({ complaint, isOwner, onDelete }) {
   const statusSlug = (complaint.status || "pending").toLowerCase().replace(/\s+/g, "-");
   const prioritySlug = (complaint.priority || "medium").toLowerCase();
 
@@ -6,7 +6,21 @@ function ComplaintCard({ complaint }) {
     <div className="complaint-card">
       <div className="complaint-top">
         <div>
-          <p className="complaint-id">{complaint.id}</p>
+          <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+            <span className="complaint-id">{complaint.id}</span>
+            {isOwner && (
+              <span style={{
+                fontSize: "11px",
+                padding: "1px 6px",
+                borderRadius: "4px",
+                backgroundColor: "#eff6ff",
+                color: "#2563eb",
+                fontWeight: "600"
+              }}>
+                Yours
+              </span>
+            )}
+          </div>
           <h3>{complaint.title}</h3>
         </div>
         <div className={`status status-badge status-${statusSlug}`}>
@@ -32,8 +46,19 @@ function ComplaintCard({ complaint }) {
           </span>
         </p>
       </div>
+
       <div className="complaint-footer">
         <p>Reported: {complaint.date}</p>
+        {onDelete && complaint.status === "Pending" && (
+          <button
+            type="button"
+            className="card-cancel-btn"
+            onClick={() => onDelete(complaint.id)}
+            title="Cancel this pending complaint"
+          >
+            Cancel Request
+          </button>
+        )}
       </div>
     </div>
   );
