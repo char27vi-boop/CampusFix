@@ -17,6 +17,14 @@ app.get("/", (req, res) => {
     res.send("CampusFix Backend is running!");
 });
 
+// Handle invalid routes
+app.use((req, res) => {
+  res.status(404).json({
+    success: false,
+    message: "API route not found"
+  });
+});
+
 // Start server
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
