@@ -1,57 +1,53 @@
 /* ===================================================
-   Complaint Form Component Styles - CampusFix
-   Palette:
-   - Deep dusty green: #34483D
-   - Dusty sage: #829486
-   - Soft grey-green: #DCE3DC
-   - Light grey: #F3F4F1
-   - White: #FFFFFF
-   - Muted beige: #C4A477
+   Complaint Form Component Styles - CampusFix Light Theme
+   Harmonized with modern slate/blue light aesthetic.
    =================================================== */
 
 /* Form Wrapper Card */
 .complaint-form-card {
-  background-color: #FFFFFF;
-  border: 1px solid #DCE3DC;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 14px;
   padding: 32px;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
   max-width: 860px;
 }
 
 /* Card Header */
 .form-card-header {
   margin-bottom: 24px;
-  border-bottom: 1px solid #DCE3DC;
+  border-bottom: 1px solid #e2e8f0;
   padding-bottom: 16px;
 }
 
 .form-card-header h2 {
-  color: #34483D;
+  color: #0f172a;
   font-size: 22px;
+  font-weight: 700;
   margin-bottom: 6px;
 }
 
 .form-card-header p {
-  color: #68756C;
+  color: #64748b;
   font-size: 14px;
   line-height: 1.5;
 }
 
 /* Helper / Info Tip Box */
 .form-info-tip {
-  background-color: #E9EEE9;
-  border: 1px solid #DCE3DC;
-  border-radius: 10px;
+  background-color: #eff6ff;
+  border: 1px solid #bfdbfe;
+  border-left: 4px solid #2563eb;
+  border-radius: 8px;
   padding: 14px 18px;
   margin-bottom: 24px;
-  color: #34483D;
+  color: #1e40af;
   font-size: 13px;
   line-height: 1.5;
 }
 
 .form-info-tip strong {
-  color: #34483D;
+  color: #1e3a8a;
 }
 
 /* Form Layout */
@@ -75,7 +71,7 @@
 }
 
 .form-group label {
-  color: #34483D;
+  color: #1e293b;
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 8px;
@@ -85,7 +81,7 @@
 }
 
 .required-star {
-  color: #C4A477;
+  color: #ef4444;
   font-weight: bold;
 }
 
@@ -94,16 +90,16 @@
 .form-group select,
 .form-group textarea {
   width: 100%;
-  padding: 12px 15px;
-  border: 1px solid #DCE3DC;
+  padding: 12px 14px;
+  border: 1px solid #cbd5e1;
   border-radius: 8px;
-  background-color: #F3F4F1;
-  color: #34483D;
+  background-color: #ffffff;
+  color: #0f172a;
   font-size: 14px;
   font-family: inherit;
   outline: none;
   box-sizing: border-box;
-  transition: border-color 0.2s, background-color 0.2s;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .form-group textarea {
@@ -114,43 +110,43 @@
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: #89958C;
+  color: #94a3b8;
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
-  border-color: #829486;
-  background-color: #FFFFFF;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
 /* Validation Error State */
 .form-group.has-error input,
 .form-group.has-error select,
 .form-group.has-error textarea {
-  border-color: #C47A70;
-  background-color: #FAF5F4;
+  border-color: #f87171;
+  background-color: #fef2f2;
 }
 
 .field-error {
-  color: #9C3E34;
+  color: #dc2626;
   font-size: 12px;
   margin-top: 6px;
   font-weight: 500;
 }
 
 .field-hint {
-  color: #68756C;
+  color: #64748b;
   font-size: 12px;
   margin-top: 5px;
 }
 
 /* Server Alerts */
 .server-error-banner {
-  background-color: #FAF5F4;
-  border: 1px solid #E8C3BF;
-  border-left: 4px solid #C47A70;
-  color: #7E2820;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  border-left: 4px solid #ef4444;
+  color: #991b1b;
   padding: 14px 18px;
   border-radius: 8px;
   margin-bottom: 22px;
@@ -159,21 +155,21 @@
 
 /* Success Confirmation Card */
 .submission-success-card {
-  background-color: #FFFFFF;
-  border: 1px solid #DCE3DC;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 14px;
   padding: 36px 32px;
   text-align: center;
   max-width: 650px;
   margin: 0 auto;
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .success-badge-icon {
   width: 56px;
   height: 56px;
-  background-color: #DCE3DC;
-  color: #34483D;
+  background-color: #dcfce7;
+  color: #16a34a;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -184,21 +180,22 @@
 }
 
 .submission-success-card h2 {
-  color: #34483D;
+  color: #0f172a;
   font-size: 24px;
+  font-weight: 700;
   margin-bottom: 10px;
 }
 
 .submission-success-card p {
-  color: #68756C;
+  color: #64748b;
   font-size: 15px;
   margin-bottom: 20px;
   line-height: 1.5;
 }
 
 .success-details-box {
-  background-color: #F3F4F1;
-  border: 1px solid #DCE3DC;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
   border-radius: 8px;
   padding: 16px;
   margin-bottom: 25px;
@@ -206,7 +203,7 @@
 }
 
 .success-details-box p {
-  color: #34483D;
+  color: #334155;
   font-size: 14px;
   margin-bottom: 8px;
 }
@@ -216,36 +213,36 @@
 }
 
 .success-id-highlight {
-  color: #34483D;
+  color: #2563eb;
   font-weight: bold;
 }
 
 /* Form Action Buttons */
 .form-actions {
   display: flex;
-  gap: 14px;
+  gap: 12px;
   align-items: center;
   margin-top: 10px;
   padding-top: 10px;
 }
 
 .btn-primary {
-  background-color: #34483D;
-  color: #FFFFFF;
+  background-color: #2563eb;
+  color: #ffffff;
   border: none;
-  padding: 12px 24px;
+  padding: 11px 22px;
   border-radius: 8px;
-  font-size: 15px;
-  font-weight: 500;
+  font-size: 14px;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s, opacity 0.2s;
+  transition: background-color 0.15s ease;
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
 .btn-primary:hover:not(:disabled) {
-  background-color: #829486;
+  background-color: #1d4ed8;
 }
 
 .btn-primary:disabled {
@@ -254,19 +251,21 @@
 }
 
 .btn-secondary {
-  background-color: transparent;
-  color: #34483D;
-  border: 1px solid #DCE3DC;
-  padding: 12px 20px;
+  background-color: #ffffff;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  padding: 11px 20px;
   border-radius: 8px;
-  font-size: 15px;
+  font-size: 14px;
+  font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.2s, border-color 0.2s;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
 .btn-secondary:hover:not(:disabled) {
-  background-color: #E9EEE9;
-  border-color: #829486;
+  background-color: #f1f5f9;
+  border-color: #94a3b8;
+  color: #0f172a;
 }
 
 .btn-secondary:disabled {

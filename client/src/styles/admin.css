@@ -1,109 +1,93 @@
 /* ==================================================================
-   CampusFix Admin Dashboard styles
-
-   This file only ADDS styles for the admin pages. It reuses the
-   existing classes from App.css (sidebar, menu-item, page-header,
-   stats-grid, stat-card, complaints-section, section-heading,
-   message-box, filter-bar, refresh-button, status, complaint-id)
-   and never changes them.
-
-   Colours: #34483D deep green, #829486 sage, #DCE3DC soft grey-green,
-   #F3F4F1 light grey, #FFFFFF white, #C4A477 muted beige.
+   CampusFix Admin Dashboard Styles - Light Theme
+   Harmonized with global modern slate/blue light palette.
    ================================================================== */
 
-/* ---------- Layout and sidebar ---------- */
+/* ---------- Layout and Sidebar Adjustments ---------- */
 
-/* Lets the main area shrink so wide tables scroll inside their wrapper. */
 .admin-layout .main-content {
   min-width: 0;
 }
 
-/* The admin menu uses <button> elements, so reset the default button look
-   to match the Student sidebar's links. */
 .admin-layout button.menu-item {
   background: none;
   border: none;
-  font-size: inherit;
+  font-size: 14px;
+  font-weight: 500;
   text-align: left;
   width: 100%;
 }
 
-/* The reset above is more specific than App.css's ".menu-item:hover", which
-   would remove the hover colour. Put the same hover colour back. */
 .admin-layout button.menu-item:hover {
-  background-color: #829486;
-  color: #ffffff;
+  background-color: #f1f5f9;
+  color: #0f172a;
 }
 
 .admin-layout button.menu-item-active {
-  background-color: #829486;
-  color: #ffffff;
+  background-color: #eff6ff;
+  color: #2563eb;
+  font-weight: 600;
 }
 
-.sidebar-switch-link {
-  color: #dce3dc;
-  font-size: 14px;
-  text-decoration: underline;
-}
-
-.sidebar-switch-link:hover {
-  color: #ffffff;
-}
-
-/* ---------- Demo / error messages ---------- */
+/* ---------- Demo / Alert Banners ---------- */
 
 .demo-banner {
-  background-color: #f6f0e4;
-  border: 1px solid #c4a477;
-  color: #5e4a27;
+  background-color: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1d4ed8;
   padding: 12px 16px;
-  border-radius: 10px;
+  border-radius: 8px;
   font-size: 14px;
-  margin-bottom: 25px;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .error-text {
-  color: #8a3b2f;
+  color: #dc2626;
   font-size: 14px;
   margin: 0;
 }
 
-/* The Overview page stacks the stat cards and the recent list. */
 .admin-layout .stats-grid {
-  margin-bottom: 30px;
+  margin-bottom: 28px;
 }
 
-/* ---------- Complaint table ---------- */
+/* ---------- Complaint Table ---------- */
 
 .table-wrapper {
   overflow-x: auto;
-  border: 1px solid #dce3dc;
+  border: 1px solid #e2e8f0;
   border-radius: 10px;
+  background-color: #ffffff;
 }
 
 .admin-table {
   width: 100%;
   min-width: 860px;
-  /* "separate" (with no gap) lets the sticky Action column keep its borders. */
   border-collapse: separate;
   border-spacing: 0;
   font-size: 14px;
 }
 
 .admin-table th {
-  background-color: #f3f4f1;
-  color: #34483d;
+  background-color: #f8fafc;
+  color: #475569;
   font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
   text-align: left;
   padding: 12px 14px;
-  border-bottom: 1px solid #dce3dc;
+  border-bottom: 1px solid #e2e8f0;
   white-space: nowrap;
 }
 
 .admin-table td {
-  color: #4b5a50;
+  color: #334155;
   padding: 13px 14px;
-  border-bottom: 1px solid #e9eee9;
+  border-bottom: 1px solid #f1f5f9;
   vertical-align: middle;
 }
 
@@ -112,15 +96,13 @@
 }
 
 .admin-table tbody tr:hover {
-  background-color: #f8f9f6;
+  background-color: #f8fafc;
 }
 
-/* The Action column stays visible while the table scrolls sideways, so the
-   "View" button can always be reached on tablets and phones. */
 .admin-table .cell-action {
   position: sticky;
   right: 0;
-  border-left: 1px solid #dce3dc;
+  border-left: 1px solid #e2e8f0;
 }
 
 .admin-table td.cell-action {
@@ -132,93 +114,45 @@
 }
 
 .admin-table tbody tr:hover td.cell-action {
-  background-color: #f8f9f6;
+  background-color: #f8fafc;
 }
 
 .cell-id {
-  color: #5f7366;
+  color: #2563eb;
   font-weight: 700;
   white-space: nowrap;
 }
 
 .cell-date {
   white-space: nowrap;
+  color: #64748b;
+  font-size: 13px;
 }
 
 .cell-title {
-  color: #34483d;
+  color: #0f172a;
   font-weight: 600;
 }
 
 .view-button {
   background-color: #ffffff;
-  color: #34483d;
-  border: 1px solid #829486;
-  padding: 7px 14px;
-  border-radius: 8px;
+  color: #2563eb;
+  border: 1px solid #cbd5e1;
+  padding: 6px 14px;
+  border-radius: 6px;
   font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
 }
 
 .view-button:hover {
-  background-color: #34483d;
+  background-color: #2563eb;
   color: #ffffff;
+  border-color: #2563eb;
 }
 
-/* ---------- Status and priority badges ---------- */
-
-/* These build on the existing ".status" pill from App.css. */
-.status-badge {
-  display: inline-block;
-  border: 1px solid transparent;
-}
-
-.status-pending {
-  background-color: #efe6d4;
-  color: #5e4a27;
-  border-color: #c4a477;
-}
-
-.status-in-progress {
-  background-color: #dce3dc;
-  color: #34483d;
-  border-color: #829486;
-}
-
-.status-resolved {
-  background-color: #34483d;
-  color: #ffffff;
-  border-color: #34483d;
-}
-
-/* A status that is not Pending / In Progress / Resolved: neutral palette colours. */
-.status-other {
-  background-color: #e9eee9;
-  color: #68756c;
-  border-color: #dce3dc;
-}
-
-.priority-badge {
-  display: inline-block;
-  padding: 4px 10px;
-  border-radius: 20px;
-  font-size: 12px;
-  background-color: #ffffff;
-  border: 1px solid #dce3dc;
-  color: #68756c;
-}
-
-.priority-high {
-  border-color: #c4a477;
-  color: #5e4a27;
-  font-weight: 700;
-}
-
-.priority-medium {
-  border-color: #829486;
-  color: #34483d;
-}
-
-/* ---------- Complaint details pop-up ---------- */
+/* ---------- Complaint Details Modal ---------- */
 
 .modal-overlay {
   position: fixed;
@@ -228,7 +162,8 @@
   align-items: flex-start;
   justify-content: center;
   padding: 40px 20px;
-  background-color: rgba(52, 72, 61, 0.45);
+  background-color: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(2px);
   overflow-y: auto;
 }
 
@@ -236,9 +171,10 @@
   width: 100%;
   max-width: 640px;
   background-color: #ffffff;
-  border: 1px solid #dce3dc;
+  border: 1px solid #e2e8f0;
   border-radius: 14px;
   padding: 28px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
 }
 
 .modal-header {
@@ -250,19 +186,23 @@
 }
 
 .modal-header h2 {
-  color: #34483d;
-  font-size: 24px;
-  margin: 6px 0 0;
+  color: #0f172a;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 4px 0 0;
 }
 
 .detail-label {
-  color: #68756c;
-  font-size: 13px;
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
   margin: 0 0 6px;
 }
 
 .detail-description {
-  color: #34483d;
+  color: #334155;
   font-size: 15px;
   line-height: 1.6;
   margin: 0 0 22px;
@@ -271,17 +211,18 @@
 .detail-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
-  background-color: #f3f4f1;
-  border: 1px solid #dce3dc;
+  gap: 16px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
   border-radius: 10px;
   padding: 18px;
   margin-bottom: 24px;
 }
 
 .detail-value {
-  color: #34483d;
-  font-size: 15px;
+  color: #0f172a;
+  font-size: 14px;
+  font-weight: 500;
   margin: 0;
 }
 
@@ -289,25 +230,31 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  margin-top: 8px;
 }
 
 .status-option {
   background-color: #ffffff;
-  color: #34483d;
-  border: 1px solid #829486;
-  padding: 10px 18px;
+  color: #334155;
+  border: 1px solid #cbd5e1;
+  padding: 9px 18px;
   border-radius: 8px;
   font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
 }
 
 .status-option:hover:not(:disabled) {
-  background-color: #dce3dc;
+  background-color: #f1f5f9;
+  border-color: #94a3b8;
+  color: #0f172a;
 }
 
 .status-option-active,
 .status-option-active:hover:not(:disabled) {
-  background-color: #34483d;
-  border-color: #34483d;
+  background-color: #2563eb;
+  border-color: #2563eb;
   color: #ffffff;
 }
 
@@ -319,7 +266,7 @@
 .modal-footer {
   display: flex;
   justify-content: flex-end;
-  border-top: 1px solid #dce3dc;
+  border-top: 1px solid #e2e8f0;
   margin-top: 24px;
   padding-top: 18px;
 }
@@ -328,7 +275,7 @@
   margin-top: 14px;
 }
 
-/* ---------- Analytics charts ---------- */
+/* ---------- Analytics Charts ---------- */
 
 .chart-grid {
   display: grid;
@@ -338,20 +285,23 @@
 
 .chart-card {
   background-color: #ffffff;
-  border: 1px solid #dce3dc;
+  border: 1px solid #e2e8f0;
   border-radius: 12px;
-  padding: 25px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .chart-card h3 {
-  color: #34483d;
+  color: #0f172a;
   font-size: 18px;
-  margin: 0 0 22px;
+  font-weight: 700;
+  margin: 0 0 20px;
 }
 
 .chart-empty {
-  color: #68756c;
+  color: #64748b;
   margin: 0;
+  font-size: 14px;
 }
 
 .bar-row {
@@ -365,47 +315,44 @@
 .bar-label {
   display: flex;
   justify-content: space-between;
-  color: #34483d;
+  color: #334155;
   font-size: 14px;
+  font-weight: 500;
   margin-bottom: 6px;
 }
 
 .bar-track {
-  height: 10px;
-  background-color: #e9eee9;
+  height: 9px;
+  background-color: #f1f5f9;
   border-radius: 999px;
   overflow: hidden;
 }
 
 .bar-fill {
   height: 100%;
-  background-color: #829486;
+  background-color: #2563eb;
   border-radius: 999px;
-  transition: width 0.3s;
+  transition: width 0.3s ease;
 }
 
 .bar-fill.tone-pending {
-  background-color: #c4a477;
+  background-color: #f59e0b;
 }
 
 .bar-fill.tone-in-progress {
-  background-color: #829486;
+  background-color: #0284c7;
 }
 
 .bar-fill.tone-resolved {
-  background-color: #34483d;
+  background-color: #10b981;
 }
 
-/* Outlined (hollow) bar so it cannot be confused with the "In Progress" bar. */
 .bar-fill.tone-other-status {
-  background-color: #dce3dc;
-  box-shadow: inset 0 0 0 1px #829486;
+  background-color: #94a3b8;
 }
 
-/* ---------- Responsive ---------- */
+/* ---------- Responsive Breakpoints ---------- */
 
-/* Five cards in one row when an "Other Status" card is shown. Below 901px
-   the existing 2-column (App.css) and 1-column rules apply as usual. */
 @media (min-width: 901px) {
   .admin-layout .stats-grid-with-other {
     grid-template-columns: repeat(5, 1fr);
@@ -418,8 +365,7 @@
   }
 }
 
-@media (max-width: 800px) {
-  /* Put the sidebar above the content on tablets and phones. */
+@media (max-width: 768px) {
   .admin-layout {
     flex-direction: column;
   }
@@ -427,34 +373,22 @@
   .admin-layout .sidebar {
     width: 100%;
     min-height: auto;
-    padding: 20px;
+    padding: 18px 16px;
   }
 
   .admin-layout .logo {
-    margin-bottom: 20px;
+    margin-bottom: 16px;
   }
 
   .admin-layout .menu {
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 6px;
   }
 
   .admin-layout button.menu-item {
     width: auto;
-    padding: 10px 14px;
-  }
-
-  .admin-layout .sidebar-bottom {
-    padding-top: 16px;
-  }
-}
-
-@media (max-width: 700px) {
-  .admin-layout .page-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
+    padding: 8px 12px;
   }
 
   .detail-grid {
