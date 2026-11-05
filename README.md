@@ -57,7 +57,7 @@ The database automatically initializes and seeds standard demo accounts upon fir
 | :--- | :--- | :--- | :--- |
 | **Admin** | `admin@campusfix.edu` | `admin123` | Full access: Admin Dashboard (`/admin`), status management, analytics |
 | **Student** | `student@campusfix.edu` | `student123` | Student Dashboard (`/dashboard`), file complaints (`/submit`), cancel own pending |
-| **Staff** | `staff@campusfix.edu` | `staff123` | Complaint status updates and viewing |
+
 
 *(You can also register brand new accounts directly on the Signup page with selectable roles).*
 
