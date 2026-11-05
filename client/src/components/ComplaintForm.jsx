@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { createComplaint } from "../services/api";
 import "./ComplaintForm.css";
 
@@ -8,6 +9,8 @@ import "./ComplaintForm.css";
  * Includes client-side validation and direct integration with the Express API.
  */
 export default function ComplaintForm({ onSuccess, onCancel }) {
+  const navigate = useNavigate();
+
   // Initial form values
   const initialFormState = {
     title: "",
@@ -161,7 +164,7 @@ export default function ComplaintForm({ onSuccess, onCancel }) {
     if (onCancel) {
       onCancel();
     } else {
-      window.location.hash = "#dashboard";
+      navigate("/dashboard");
     }
   };
 

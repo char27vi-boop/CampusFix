@@ -10,20 +10,21 @@ const {
 } = require("../controllers/complaintController");
 
 const validateComplaint = require("../middleware/validateComplaint");
+const { authenticateToken, optionalToken, requireRoles } = require("../middleware/authMiddleware");
 
-// GET all complaints
-router.get("/", getAllComplaints);
+// GET all complaints (optional token to support ?mine=true filter)
+router.get("/", optionalToken, getAllComplaints);
 
 // GET complaint by ID
-router.get("/:id", getComplaintById);
+router.get("/:id", optionalToken, getComplaintById);
 
-// POST a new complaint
-router.post("/", validateComplaint, createComplaint);
+// POST a new complaint (optionalToken associates user_id if logged in)
+router.post("/", optionalToken, validateComplaint, createComplaint);
 
-// PUT: Update an existing complaint
-router.put("/:id", updateComplaint);
+// PUT: Update an existing complaint (Protected: requires admin or staff role)
+router.put("/:id", authenticateToken, requireRoles("admin", "staff"), updateComplaint);
 
-// DELETE: Delete an existing complaint
-router.delete("/:id", deleteComplaint);
+// DELETE: Delete an existing complaint (Protected: requires admin role)
+router.delete("/:id", authenticateToken, requireRoles("admin"), deleteComplaint);
 
 module.exports = router;

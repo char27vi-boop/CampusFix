@@ -9,7 +9,11 @@ const PORT = 5000;
 app.use(cors());
 app.use(express.json());
 
+// Routes
+const authRoutes = require("./routes/authRoutes");
 const complaintRoutes = require("./routes/complaintRoutes");
+
+app.use("/api/auth", authRoutes);
 app.use("/api/complaints", complaintRoutes);
 
 // Test route
