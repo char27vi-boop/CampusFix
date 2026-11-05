@@ -227,25 +227,44 @@ const updateComplaint = (req, res) => {
 };
 
 // DELETE /api/complaints/:id - delete a complaint.
+// DELETE /api/complaints/:id - delete a complaint.
 const deleteComplaint = (req, res) => {
-    db.run("DELETE FROM complaints WHERE id = ?", [req.params.id], function (error) {
-        if (error) {
-            console.error("Could not delete complaint:", error.message);
-            return res.status(500).json({
-                message: "Unable to delete complaint."
-            });
-        }
+    const complaintId = req.params.id;
 
-        if (this.changes === 0) {
-            return res.status(404).json({
-                message: "Complaint not found."
-            });
-        }
-
-        res.status(200).json({
-            message: "Complaint deleted successfully."
+    if (!complaintId || !complaintId.trim()) {
+        return res.status(400).json({
+            success: false,
+            message: "Complaint ID is required."
         });
-    });
+    }
+
+    db.run(
+        "DELETE FROM complaints WHERE id = ?",
+        [complaintId],
+        function (error) {
+            if (error) {
+                console.error("Could not delete complaint:", error.message);
+
+                return res.status(500).json({
+                    success: false,
+                    message: "An error occurred while deleting the complaint."
+                });
+            }
+
+            if (this.changes === 0) {
+                return res.status(404).json({
+                    success: false,
+                    message: "Complaint not found. It may have already been deleted."
+                });
+            }
+
+            return res.status(200).json({
+                success: true,
+                message: "Complaint deleted successfully.",
+                deletedId: complaintId
+            });
+        }
+    );
 };
 
 // Export controller functions.
