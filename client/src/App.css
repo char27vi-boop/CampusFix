@@ -288,6 +288,43 @@
   font-size: 14px;
 }
 
+/* ---------- Scope Tabs (My Complaints vs All) ---------- */
+
+.dashboard-scope-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+.scope-tab {
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  color: #475569;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.scope-tab:hover {
+  background-color: #f1f5f9;
+  color: #0f172a;
+}
+
+.scope-tab-active {
+  background-color: #2563eb;
+  border-color: #2563eb;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.scope-tab-active:hover {
+  background-color: #1d4ed8;
+  color: #ffffff;
+}
+
 /* ---------- Complaint Cards List ---------- */
 
 .complaint-list {
@@ -363,6 +400,9 @@
 }
 
 .complaint-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   border-top: 1px solid #f1f5f9;
   padding-top: 10px;
 }
@@ -371,6 +411,23 @@
   font-size: 12px;
   color: #94a3b8;
   margin: 0;
+}
+
+.card-cancel-btn {
+  background: none;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.card-cancel-btn:hover {
+  background-color: #fef2f2;
+  border-color: #ef4444;
 }
 
 /* ---------- Status & Priority Badges ---------- */

@@ -10,21 +10,21 @@ const {
 } = require("../controllers/complaintController");
 
 const validateComplaint = require("../middleware/validateComplaint");
-const { authenticateToken, optionalToken, requireRoles } = require("../middleware/authMiddleware");
+const { authenticateToken, optionalToken } = require("../middleware/authMiddleware");
 
-// GET all complaints (optional token to support ?mine=true filter)
+// GET all complaints (students isolated to their own; staff/admin see all)
 router.get("/", optionalToken, getAllComplaints);
 
-// GET complaint by ID
+// GET complaint by ID (students can only see their own)
 router.get("/:id", optionalToken, getComplaintById);
 
-// POST a new complaint (optionalToken associates user_id if logged in)
+// POST a new complaint (associates authenticated user_id)
 router.post("/", optionalToken, validateComplaint, createComplaint);
 
-// PUT: Update an existing complaint (Protected: requires admin or staff role)
-router.put("/:id", authenticateToken, requireRoles("admin", "staff"), updateComplaint);
+// PUT: Update an existing complaint (Admin/staff can update status/any; students can update their own details)
+router.put("/:id", authenticateToken, updateComplaint);
 
-// DELETE: Delete an existing complaint (Protected: requires admin role)
-router.delete("/:id", authenticateToken, requireRoles("admin"), deleteComplaint);
+// DELETE: Delete an existing complaint (Admin can delete any; students can delete their own)
+router.delete("/:id", authenticateToken, deleteComplaint);
 
 module.exports = router;
