@@ -42,6 +42,8 @@
   transition: 0.3s;
 }
 
+.menu-item.active,
+.menu-item-active,
 .menu-item:hover,
 .menu-item:focus {
   background-color: #829486;

@@ -1,4 +1,5 @@
 // API functions used by the Admin Dashboard.
+import { getAuthHeaders } from "./api";
 
 const API_BASE_URL =
   import.meta.env.VITE_API_URL || "http://localhost:5000";
@@ -8,7 +9,7 @@ export async function updateComplaintStatus(id, status) {
     `${API_BASE_URL}/api/complaints/${encodeURIComponent(id)}`,
     {
       method: "PUT",
-      headers: { "Content-Type": "application/json" },
+      headers: getAuthHeaders(),
       body: JSON.stringify({ status }),
     }
   );
