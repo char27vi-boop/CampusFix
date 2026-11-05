@@ -18,7 +18,7 @@ import { getFriendlyErrorMessage } from "../utils/adminHelpers";
 //         there (needs GET /api/complaints and the proposed
 //         PATCH /api/complaints/:id/status - see services/adminApi.js)
 // ------------------------------------------------------------------
-const USE_SAMPLE_DATA = true;
+const USE_SAMPLE_DATA = false;
 
 // Heading and sub-heading for each page.
 const pageTitles = {

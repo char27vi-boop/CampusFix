@@ -25,7 +25,16 @@ app.use((req, res) => {
   });
 });
 
-// Start server
-app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
-});
+// Initialize database before starting the server
+const { initializeDatabase } = require("./database/db");
+
+initializeDatabase()
+    .then(() => {
+        app.listen(PORT, () => {
+            console.log(`Server running on http://localhost:${PORT}`);
+        });
+    })
+    .catch((error) => {
+        console.error("Failed to initialize database:", error);
+        process.exit(1);
+    });
