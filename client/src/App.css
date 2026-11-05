@@ -1,5 +1,4 @@
-
-/* CampusFix Sidebar */
+/* Sidebar */
 
 .sidebar {
   width: 260px;
@@ -33,14 +32,18 @@
 }
 
 .menu-item {
+  display: block;
   padding: 15px;
   border-radius: 10px;
   color: #E5EBE5;
+  text-decoration: none;
+  font-size: 15px;
   cursor: pointer;
   transition: 0.3s;
 }
 
-.menu-item:hover {
+.menu-item:hover,
+.menu-item:focus {
   background-color: #829486;
   color: white;
 }
@@ -50,13 +53,14 @@
   color: #DCE3DC;
   padding-top: 30px;
 }
+
+/* Main-Layout */
+
 .app-layout {
   display: flex;
   min-height: 100vh;
   width: 100%;
 }
-
-/* Main Dashboard */
 
 .main-content {
   flex: 1;
@@ -65,7 +69,7 @@
   min-height: 100vh;
 }
 
-/* Dashboard Header */
+/* Dashboard-Header */
 
 .page-header {
   display: flex;
@@ -92,13 +96,14 @@
   padding: 12px 22px;
   border-radius: 8px;
   font-size: 15px;
+  cursor: pointer;
 }
 
 .refresh-button:hover {
   background-color: #829486;
 }
 
-/* Statistics Cards */
+/* Cards */
 
 .stats-grid {
   display: grid;
@@ -126,7 +131,7 @@
   font-size: 30px;
 }
 
-/* Complaints Section */
+/* Complaints-Section */
 
 .complaints-section {
   background-color: white;
@@ -149,7 +154,7 @@
   color: #68756C;
 }
 
-/* Complaint List */
+/* Complaint-List */
 
 .complaint-list {
   display: grid;
@@ -162,6 +167,12 @@
   border: 1px solid #DCE3DC;
   border-radius: 12px;
   padding: 22px;
+  transition: 0.3s;
+}
+
+.complaint-card:hover {
+  border-color: #829486;
+  box-shadow: 0 5px 15px rgba(52, 72, 61, 0.10);
 }
 
 .complaint-card h3 {
@@ -174,13 +185,19 @@
   margin-bottom: 10px;
 }
 
-.status {
-  background-color: #DCE3DC;
-  color: #34483D;
-  padding: 7px 12px;
-  border-radius: 20px;
-  font-size: 13px;
+.complaint-id {
+  font-size: 12px;
+  font-weight: bold;
+  color: #829486 !important;
 }
+
+.complaint-description {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 12px;
+}
+
+/* Complaint-Details */
 
 .complaint-top {
   display: flex;
@@ -188,8 +205,30 @@
   gap: 10px;
 }
 
+.status {
+  background-color: #DCE3DC;
+  color: #34483D;
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  white-space: nowrap;
+  height: fit-content;
+}
+
 .complaint-details {
+  background-color: #E9EEE9;
+  padding: 14px;
+  border-radius: 8px;
   margin-top: 18px;
+}
+
+.complaint-details p {
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.complaint-details p:last-child {
+  margin-bottom: 0;
 }
 
 .complaint-footer {
@@ -198,28 +237,12 @@
   margin-top: 12px;
 }
 
-/* Filter and Message Areas */
-
-.message-box {
-  background-color: #F3F4F1;
-  padding: 20px;
-  border-radius: 10px;
-  margin-top: 20px;
+.complaint-footer p {
+  font-size: 12px;
+  margin-bottom: 0;
 }
 
-/* Responsive Layout */
-
-@media (max-width: 900px) {
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .complaint-list {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Search and Filter Bar */
+/* Search&Filter Bar */
 
 .filter-bar {
   display: grid;
@@ -250,6 +273,27 @@
   color: #89958C;
 }
 
+/* Empty-Message */
+
+.message-box {
+  background-color: #F3F4F1;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+/* Responsive-Layout */
+
+@media (max-width: 900px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .complaint-list {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 700px) {
   .filter-bar {
     grid-template-columns: 1fr;
@@ -258,52 +302,15 @@
   .main-content {
     padding: 20px;
   }
-}
 
-/* Complaint Card Improvements */
+  .sidebar {
+    width: 190px;
+    padding: 20px 12px;
+  }
 
-.complaint-id {
-  font-size: 12px;
-  font-weight: bold;
-  color: #829486 !important;
-}
-
-.complaint-description {
-  font-size: 14px;
-  line-height: 1.6;
-  margin-top: 12px;
-}
-
-.complaint-details {
-  background-color: #E9EEE9;
-  padding: 14px;
-  border-radius: 8px;
-  margin-top: 18px;
-}
-
-.complaint-details p {
-  font-size: 13px;
-  margin-bottom: 8px;
-}
-
-.complaint-details p:last-child {
-  margin-bottom: 0;
-}
-
-.complaint-footer p {
-  font-size: 12px;
-  margin-bottom: 0;
-}
-
-/* Status Colours */
-
-.status {
-  white-space: nowrap;
-  height: fit-content;
-}
-
-.complaint-card:hover {
-  border-color: #829486;
-  box-shadow: 0 5px 15px rgba(52, 72, 61, 0.10);
-  transition: 0.3s;
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
 }

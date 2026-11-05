@@ -1,0 +1,298 @@
+/* ===================================================
+   Complaint Form Component Styles - CampusFix
+   Palette:
+   - Deep dusty green: #34483D
+   - Dusty sage: #829486
+   - Soft grey-green: #DCE3DC
+   - Light grey: #F3F4F1
+   - White: #FFFFFF
+   - Muted beige: #C4A477
+   =================================================== */
+
+/* Form Wrapper Card */
+.complaint-form-card {
+  background-color: #FFFFFF;
+  border: 1px solid #DCE3DC;
+  border-radius: 14px;
+  padding: 32px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+  max-width: 860px;
+}
+
+/* Card Header */
+.form-card-header {
+  margin-bottom: 24px;
+  border-bottom: 1px solid #DCE3DC;
+  padding-bottom: 16px;
+}
+
+.form-card-header h2 {
+  color: #34483D;
+  font-size: 22px;
+  margin-bottom: 6px;
+}
+
+.form-card-header p {
+  color: #68756C;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Helper / Info Tip Box */
+.form-info-tip {
+  background-color: #E9EEE9;
+  border: 1px solid #DCE3DC;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin-bottom: 24px;
+  color: #34483D;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.form-info-tip strong {
+  color: #34483D;
+}
+
+/* Form Layout */
+.complaint-form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 2-Column Row for Category & Location */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Form Group */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 22px;
+}
+
+.form-group label {
+  color: #34483D;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.required-star {
+  color: #C4A477;
+  font-weight: bold;
+}
+
+/* Inputs, Selects and Textarea */
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #DCE3DC;
+  border-radius: 8px;
+  background-color: #F3F4F1;
+  color: #34483D;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+  line-height: 1.5;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #89958C;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: #829486;
+  background-color: #FFFFFF;
+}
+
+/* Validation Error State */
+.form-group.has-error input,
+.form-group.has-error select,
+.form-group.has-error textarea {
+  border-color: #C47A70;
+  background-color: #FAF5F4;
+}
+
+.field-error {
+  color: #9C3E34;
+  font-size: 12px;
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+.field-hint {
+  color: #68756C;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* Server Alerts */
+.server-error-banner {
+  background-color: #FAF5F4;
+  border: 1px solid #E8C3BF;
+  border-left: 4px solid #C47A70;
+  color: #7E2820;
+  padding: 14px 18px;
+  border-radius: 8px;
+  margin-bottom: 22px;
+  font-size: 14px;
+}
+
+/* Success Confirmation Card */
+.submission-success-card {
+  background-color: #FFFFFF;
+  border: 1px solid #DCE3DC;
+  border-radius: 14px;
+  padding: 36px 32px;
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+}
+
+.success-badge-icon {
+  width: 56px;
+  height: 56px;
+  background-color: #DCE3DC;
+  color: #34483D;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-weight: bold;
+  margin: 0 auto 18px auto;
+}
+
+.submission-success-card h2 {
+  color: #34483D;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.submission-success-card p {
+  color: #68756C;
+  font-size: 15px;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.success-details-box {
+  background-color: #F3F4F1;
+  border: 1px solid #DCE3DC;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.success-details-box p {
+  color: #34483D;
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.success-details-box p:last-child {
+  margin-bottom: 0;
+}
+
+.success-id-highlight {
+  color: #34483D;
+  font-weight: bold;
+}
+
+/* Form Action Buttons */
+.form-actions {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
+.btn-primary {
+  background-color: #34483D;
+  color: #FFFFFF;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, opacity 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #829486;
+}
+
+.btn-primary:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #34483D;
+  border: 1px solid #DCE3DC;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: #E9EEE9;
+  border-color: #829486;
+}
+
+.btn-secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .complaint-form-card {
+    padding: 22px 18px;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+}
